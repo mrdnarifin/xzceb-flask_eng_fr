@@ -12,26 +12,22 @@ url = os.environ['url']
 authenticator = IAMAuthenticator(apikey)
 
 language_translator = LanguageTranslatorV3(
-    version='{version}',
+    version='2018-05-01',
     authenticator=authenticator
 )
 
-# language_translator.set_disable_ssl_verification(True)
-
 language_translator.set_service_url(url)
 
-
-
 def englishToFrench(englishText):
-    translation = language_translator.translate(
-    text=englishText,
-    model_id='en-fr').get_result()
-    return frenchText
+    if englishText != "":
+        frenchText = language_translator.translate(
+        text=englishText,
+        model_id='en-fr').get_result()
+        return frenchText
+    return ""
 
 def frenchToEnglish(frenchText):
-    translation = language_translator.translate(
+    englishText = language_translator.translate(
     text=frenchText,
     model_id='fr-en').get_result()
     return englishText
-
-print(englishToFrench("Hello"))

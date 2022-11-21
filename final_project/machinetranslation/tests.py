@@ -4,8 +4,8 @@ from translator import englishToFrench, frenchToEnglish
 
 class TestenglishToFrench(unittest.TestCase): 
     def test1(self): 
-        self.assertEqual(englishToFrench(""), "")
-        elf.assertEqual(englishToFrench("Hello"), "Bonjour")
+        # self.assertEqual(englishToFrench(), "")
+        self.assertEqual(englishToFrench("Hello")['translations'][0]['translation'], "Bonjour")
 
 # class TestfrenchToEnglish(unittest.TestCase): 
 #     def test1(self): 
